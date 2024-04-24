@@ -52,10 +52,8 @@ void setup() {
 
 void loop() {
 
-  //Serial.println(colorManger.getGreen());
-  // Serial.println(composManger.readAngle());
+  
   composManger.setDireToHold(composManger.readAngle());
-  // Serial.println(composManger.readAngle());
   while (maze) {
   
     colorManger.readColor();
@@ -131,8 +129,6 @@ void loop() {
 
     if (on_turn) {
       carManger.rotate(composManger, turn_angle);
-      // Serial.print("on turn and current diffrent: ");
-      // Serial.println(abs(composManger.readAngle() - head_to));
       if (abs(composManger.readAngle() - head_to) < 3) {
         on_turn = false;
         carManger.stopMoving();
@@ -154,9 +150,7 @@ void loop() {
       if (!checking) {
         Serial.print("setting up and angle");
         previous_angle = head_to;
-        //if (head_to == composManger.Y_coordinate) {
         angle_in_the_check = (composManger.X_coordinate - composManger.readAngle());
-        //}
         Serial.print(composManger.readAngle());
         Serial.println(angle_in_the_check);
       }
